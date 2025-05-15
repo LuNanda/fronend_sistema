@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LACCEI - Investigación e Innovación</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="/api/placeholder/200/80" alt="Logo LACCEI" class="logo">
+            <h1>LACCEI</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="active">Inicio</a></li>
+                <li><a href="#about">Sobre Nosotros</a></li>
+                <li><a href="#research">Investigación</a></li>
+                <li><a href="#contact">Contacto</a></li>
+                <li><a href="login.html" class="login-btn">Acceder <i class="fas fa-sign-in-alt"></i></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Innovación y Conocimiento en Latinoamérica</h2>
+            <p>Descubre los avances en investigación y desarrollo tecnológico de la comunidad LACCEI</p>
+            <a href="#research" class="btn">Explorar Investigaciones</a>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <h2>Sobre LACCEI</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>El Consorcio Latinoamericano y del Caribe de Instituciones de Ingeniería (LACCEI) es una organización sin fines de lucro que reúne a instituciones de educación superior en ingeniería de América Latina y el Caribe.</p>
+                    <p>Nuestra misión es impulsar la colaboración, la innovación y el desarrollo de la educación en ingeniería en la región, fomentando la investigación aplicada y el intercambio de conocimientos.</p>
+                </div>
+                <div class="about-image">
+                    <img src="/api/placeholder/400/300" alt="Equipo LACCEI">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="research" class="research">
+        <div class="container">
+            <h2>Áreas de Investigación</h2>
+            <div class="research-grid">
+                <div class="research-card" onclick="location.href='cubestates.html'">
+                    <div class="research-icon">
+                        <i class="fas fa-satellite"></i>
+                    </div>
+                    <h3>CubeStates</h3>
+                    <p>Análisis de conceptos y clustering de CubeSats en Latinoamérica</p>
+                    <span class="badge">Destacado</span>
+                </div>
+                <div class="research-card">
+                    <div class="research-icon">
+                        <i class="fas fa-solar-panel"></i>
+                    </div>
+                    <h3>Energías Renovables</h3>
+                    <p>Investigación en sistemas de energía sostenible</p>
+                </div>
+                <div class="research-card">
+                    <div class="research-icon">
+                        <i class="fas fa-microchip"></i>
+                    </div>
+                    <h3>Tecnologías Emergentes</h3>
+                    <p>Exploración de nuevas tecnologías en América Latina</p>
+                </div>
+                <div class="research-card">
+                    <div class="research-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>Robótica Aplicada</h3>
+                    <p>Avances en automatización y sistemas robóticos</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="stats" class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>250+</h3>
+                    <p>Instituciones Miembro</p>
+                </div>
+                <div class="stat-card">
+                    <h3>18</h3>
+                    <p>Países Participantes</p>
+                </div>
+                <div class="stat-card">
+                    <h3>1200+</h3>
+                    <p>Publicaciones Científicas</p>
+                </div>
+                <div class="stat-card">
+                    <h3>45+</h3>
+                    <p>Proyectos Activos</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Contacto</h2>
+            <div class="contact-content">
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Nombre</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Mensaje</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Enviar Mensaje</button>
+                    </form>
+                </div>
+                <div class="contact-info">
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p>Av. Principal #123, Ciudad Universitaria</p>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <p>contacto@laccei.org</p>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-phone"></i>
+                        <p>+123 456 7890</p>
+                    </div>
+                    <div class="social-media">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="/api/placeholder/150/60" alt="Logo LACCEI" class="logo">
+                    <p>LACCEI - Consorcio Latinoamericano y del Caribe de Instituciones de Ingeniería</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Enlaces Rápidos</h4>
+                    <ul>
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="#about">Sobre Nosotros</a></li>
+                        <li><a href="#research">Investigación</a></li>
+                        <li><a href="#contact">Contacto</a></li>
+                        <li><a href="login.html">Acceder</a></li>
+                    </ul>
+                </div>
+                <div class="footer-newsletter">
+                    <h4>Boletín Informativo</h4>
+                    <p>Suscríbete para recibir las últimas noticias y actualizaciones</p>
+                    <form>
+                        <input type="email" placeholder="Tu correo electrónico">
+                        <button type="submit">Suscribirse</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 LACCEI. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

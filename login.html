@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LACCEI - Login</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="/api/placeholder/200/80" alt="Logo LACCEI" class="logo">
+            <h1>LACCEI</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="index.html#about">Sobre Nosotros</a></li>
+                <li><a href="index.html#research">Investigación</a></li>
+                <li><a href="index.html#contact">Contacto</a></li>
+                <li><a href="login.html" class="login-btn active">Acceder <i class="fas fa-sign-in-alt"></i></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="login-section">
+        <div class="container">
+            <div class="form-container">
+                <div class="form-header">
+                    <h2>Acceso al Sistema</h2>
+                    <p>Ingresa tus credenciales para acceder a la plataforma de investigación</p>
+                </div>
+                
+                <div class="login-options">
+                    <button class="login-option active" data-target="login-form">Iniciar Sesión</button>
+                    <button class="login-option" data-target="register-form">Registrarse</button>
+                </div>
+
+                <form id="login-form" class="login-form">
+                    <div class="form-group">
+                        <label for="email">Correo Electrónico</label>
+                        <div class="input-icon">
+                            <i class="fas fa-envelope"></i>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Contraseña</label>
+                        <div class="input-icon">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" id="password" name="password" required>
+                        </div>
+                    </div>
+                    <div class="form-options">
+                        <div class="remember-me">
+                            <input type="checkbox" id="remember" name="remember">
+                            <label for="remember">Recordarme</label>
+                        </div>
+                        <a href="#" class="forgot-password">¿Olvidaste tu contraseña?</a>
+                    </div>
+                    <button type="submit" class="btn login-btn-form">Iniciar Sesión</button>
+                </form>
+
+                <form id="register-form" class="register-form hidden">
+                    <div class="form-group">
+                        <label for="reg-name">Nombre Completo</label>
+                        <div class="input-icon">
+                            <i class="fas fa-user"></i>
+                            <input type="text" id="reg-name" name="name" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="reg-email">Correo Electrónico</label>
+                        <div class="input-icon">
+                            <i class="fas fa-envelope"></i>
+                            <input type="email" id="reg-email" name="email" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="reg-password">Contraseña</label>
+                        <div class="input-icon">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" id="reg-password" name="password" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="reg-confirm-password">Confirmar Contraseña</label>
+                        <div class="input-icon">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" id="reg-confirm-password" name="confirm-password" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="institution">Institución</label>
+                        <div class="input-icon">
+                            <i class="fas fa-building"></i>
+                            <input type="text" id="institution" name="institution" required>
+                        </div>
+                    </div>
+                    <div class="form-note">
+                        <p>La aprobación de tu cuenta estará sujeta a verificación por parte del administrador.</p>
+                    </div>
+                    <button type="submit" class="btn login-btn-form">Registrarse</button>
+                </form>
+
+                <div class="demo-accounts">
+                    <h3>Cuentas Demo</h3>
+                    <p>Para fines de demostración, puedes usar las siguientes credenciales:</p>
+                    <div class="account-types">
+                        <div class="account-type">
+                            <h4>Director</h4>
+                            <p>Email: director@laccei.org</p>
+                            <p>Contraseña: director123</p>
+                        </div>
+                        <div class="account-type">
+                            <h4>Miembro</h4>
+                            <p>Email: miembro@laccei.org</p>
+                            <p>Contraseña: miembro123</p>
+                        </div>
+                        <div class="account-type">
+                            <h4>Público</h4>
+                            <p>Email: publico@laccei.org</p>
+                            <p>Contraseña: publico123</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="/api/placeholder/150/60" alt="Logo LACCEI" class="logo">
+                    <p>LACCEI - Consorcio Latinoamericano y del Caribe de Instituciones de Ingeniería</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Enlaces Rápidos</h4>
+                    <ul>
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="index.html#about">Sobre Nosotros</a></li>
+                        <li><a href="index.html#research">Investigación</a></li>
+                        <li><a href="index.html#contact">Contacto</a></li>
+                        <li><a href="login.html">Acceder</a></li>
+                    </ul>
+                </div>
+                <div class="footer-newsletter">
+                    <h4>Boletín Informativo</h4>
+                    <p>Suscríbete para recibir las últimas noticias y actualizaciones</p>
+                    <form>
+                        <input type="email" placeholder="Tu correo electrónico">
+                        <button type="submit">Suscribirse</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 LACCEI. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

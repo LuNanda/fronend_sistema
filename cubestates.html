@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LACCEI - CubeStates</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/plotly/2.24.2/plotly.min.js"></script>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="/api/placeholder/200/80" alt="Logo LACCEI" class="logo">
+            <h1>LACCEI</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="index.html#about">Sobre Nosotros</a></li>
+                <li><a href="index.html#research" class="active">Investigación</a></li>
+                <li><a href="index.html#contact">Contacto</a></li>
+                <li><a href="login.html" class="login-btn" id="login-status">Acceder <i class="fas fa-sign-in-alt"></i></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="user-banner" id="user-banner">
+        <p>Nivel de acceso: <span id="access-level">Público</span></p>
+        <button id="logout-btn" class="btn-small">Cerrar Sesión</button>
+    </div>
+
+    <section class="cubestates-hero">
+        <div class="container">
+            <div class="cubestates-hero-content">
+                <h1>CubeStates</h1>
+                <p class="subtitle">Análisis de Conceptos y Clusters de CubeSats en Latinoamérica</p>
+                <div class="hero-stats">
+                    <div class="hero-stat">
+                        <i class="fas fa-satellite"></i>
+                        <span>125+ CubeSats</span>
+                    </div>
+                    <div class="hero-stat">
+                        <i class="fas fa-globe-americas"></i>
+                        <span>18 Países</span>
+                    </div>
+                    <div class="hero-stat">
+                        <i class="fas fa-university"></i>
+                        <span>65 Instituciones</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cubestates-overview">
+        <div class="container">
+            <div class="section-header">
+                <h2>Panorama General</h2>
+                <p>Exploración interactiva de datos sobre CubeSats en Latinoamérica</p>
+            </div>
+
+            <div class="access-notification" id="limited-access-banner">
+                <i class="fas fa-lock"></i>
+                <p>Estás viendo una versión limitada. <a href="login.html">Inicia sesión</a> para acceder a todos los datos.</p>
+            </div>
+
+            <div class="search-keywords">
+                <h3>Búsqueda de Conceptos</h3>
+                <div class="search-input">
+                    <input type="text" id="keywords-input" placeholder="Ej: CubeSat, Nanosatellite, Space Technology..." value="CubeSat OR CubeSats OR Nanosatellite">
+                    <button id="search-btn" class="btn-search">Buscar</button>
+                </div>
+                <div class="search-tags">
+                    <span class="tag">CubeSat</span>
+                    <span class="tag">Nanosatellite</span>
+                    <span class="tag">Space Technology</span>
+                    <span class="tag">Small Satellite</span>
+                </div>
+            </div>
+
+            <div class="dashboard-grid">
+                <div class="dashboard-card full-width">
+                    <h3>🌐 Red de Conceptos de CubeSat</h3>
+                    <div id="cluster-network" class="chart-container">
+                        <div class="loading">Cargando visualización...</div>
+                    </div>
+                </div>
+
+                <div class="dashboard-card">
+                    <h3>🍯 Visualización Honeycomb</h3>
+                    <div id="honeycomb-plot" class="chart-container">
+                        <div class="loading">Cargando visualización...</div>
+                    </div>
+                </div>
+
+                <div class="dashboard-card">
+                    <h3>🔍 Exploración de Clusters</h3>
+                    <div class="cluster-control">
+                        <label for="cluster-select">Seleccionar Cluster:</label>
+                        <select id="cluster-select">
+                            <option value="0">Cluster 0</option>
+                            <option value="1">Cluster 1</option>
+                            <option value="2">Cluster 2</option>
+                        </select>
+                    </div>
+                    <div id="cluster-details" class="chart-container">
+                        <div class="loading">Selecciona un cluster para ver detalles...</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Solo visible para usuarios con nivel de acceso Miembro o Director -->
+            <div class="members-only" id="members-section">
+                <div class="section-header">
+                    <h2>Análisis Avanzado</h2>
+                    <p>Datos detallados disponibles solo para miembros</p>
+                </div>
+
+                <div class="knowledge-tree">
+                    <h3>🌞 Árbol de Conocimiento LACCEI</h3>
+                    <div class="year-selector">
+                        <label for="year-select">Año:</label>
+                        <select id="year-select">
+                            <option value="2024">2024</option>
+                            <option value="2023">2023</option>
+                            <option value="2022">2022</option>
+                            <option value="2021">2021</option>
+                            <option value="2020">2020</option>
+                        </select>
+                    </div>
+                    <div id="sunburst-chart" class="chart-container large">
+                        <div class="loading">Cargando árbol de conocimiento...</div>
+                    </div>
+                </div>
+
+                <div class="institutions-table">
+                    <h3>🏛️ Instituciones Participantes</h3>
+                    <div class="table-controls">
+                        <div class="sort-control">
+                            <label for="sort-select">Ordenar por:</label>
+                            <select id="sort-select">
+                                <option value="publications">Número de publicaciones</option>
+                                <option value="alphabetical">Alfabético</option>
+                            </select>
+                        </div>
+                        <div class="search-control">
+                            <input type="text" id="institution-search" placeholder="Buscar institución...">
+                        </div>
+                    </div>
+
+                    <div class="table-container">
+                        <table id="institutions-table">
+                            <thead>
+                                <tr>
+                                    <th>Institución</th>
+                                    <th>País</th>
+                                    <th>Publicaciones</th>
+                                    <th>Concepto Principal</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td colspan="4" class="loading-row">Cargando datos de instituciones...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Solo visible para usuarios con nivel de acceso Director -->
+            <div class="director-only" id="director-section">
+                <div class="section-header">
+                    <h2>Panel de Control</h2>
+                    <p>Herramientas avanzadas y análisis de usuarios</p>
+                </div>
+                
+                <div class="dashboard-grid">
+                    <div class="dashboard-card">
+                        <h3>👥 Actividad de Usuarios</h3>
+                        <div id="user-activity-chart" class="chart-container">
+                            <div class="loading">Cargando datos de actividad...</div>
+                        </div>
+                    </div>
+                    
+                    <div class="dashboard-card">
+                        <h3>⚙️ Configuración de Acceso</h3>
+                        <div class="access-settings">
+                            <h4>Gestión de Permisos</h4>
+                            <form id="access-form">
+                                <div class="form-group">
+                                    <label>Contenido público</label>
+                                    <div class="toggle-options">
+                                        <label class="toggle">
+                                            <input type="checkbox" checked name="public_clusters">
+                                            <span class="slider"></span>
+                                            <span class="label">Visualización de Clusters</span>
+                                        </label>
+                                        <label class="toggle">
+                                            <input type="checkbox" checked name="public_concepts">
+                                            <span class="slider"></span>
+                                            <span class="label">Red de Conceptos</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label>Contenido para miembros</label>
+                                    <div class="toggle-options">
+                                        <label class="toggle">
+                                            <input type="checkbox" checked name="member_knowledge_tree">
+                                            <span class="slider"></span>
+                                            <span class="label">Árbol de Conocimiento</span>
+                                        </label>
+                                        <label class="toggle">
+                                            <input type="checkbox" checked name="member_institutions">
+                                            <span class="slider"></span>
+                                            <span class="label">Datos de Instituciones</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <button type="submit" class="btn save-btn">Guardar Cambios</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="users-management">
+                    <h3>👤 Gestión de Usuarios</h3>
+                    <div class="table-container">
+                        <table id="users-table">
+                            <thead>
+                                <tr>
+                                    <th>Usuario</th>
+                                    <th>Email</th>
+                                    <th>Institución</th>
+                                    <th>Nivel de Acceso</th>
+                                    <th>Última Actividad</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>María González</td>
+                                    <td>maria@universidad.edu</td>
+                                    <td>Universidad Nacional</td>
+                                    <td>
+                                        <select class="access-level-select">
+                                            <option>Público</option>
+                                            <option selected>Miembro</option>
+                                            <option>Director</option>
+                                        </select>
+                                    </td>
+                                    <td>15/05/2025</td>
+                                    <td>
+                                        <button class="btn-small">Editar</button>
+                                        <button class="btn-small danger">Suspender</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Carlos Rodríguez</td>
+                                    <td>carlos@instituto.org</td>
+                                    <td>Instituto Tecnológico</td>
+                                    <td>
+                                        <select class="access-level-select">
+                                            <option selected>Público</option>
+                                            <option>Miembro</option>
+                                            <option>Director</option>
+                                        </select>
+                                    </td>
+                                    <td>14/05/2025</td>
+                                    <td>
+                                        <button class="btn-small">Editar</button>
+                                        <button class="btn-small danger">Suspender</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="/api/placeholder/150/60" alt="Logo LACCEI" class="logo">
+                    <p>LACCEI - Consorcio Latinoamericano y del Caribe de Instituciones de Ingeniería</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Enlaces Rápidos</h4>
+                    <ul>
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="index.html#about">Sobre Nosotros</a></li>
+                        <li><a href="index.html#research">Investigación</a></li>
+                        <li><a href="index.html#contact">Contacto</a></li>
+                        <li><a href="login.html">Acceder</a></li>
+                    </ul>
+                </div>
+                <div class="footer-newsletter">
+                    <h4>Boletín Informativo</h4>
+                    <p>Suscríbete para recibir las últimas noticias y actualizaciones</p>
+                    <form>
+                        <input type="email" placeholder="Tu correo electrónico">
+                        <button type="submit">Suscribirse</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 LACCEI. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="database.js"></script>
+    <script src="cubestates.js"></script>
+</body>
+</html>
