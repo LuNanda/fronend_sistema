@@ -1,2 +1,2 @@
-# fronend_sistema
+# frontend_sistema
 Parte visual del Sistema
