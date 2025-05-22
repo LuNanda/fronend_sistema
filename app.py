@@ -13,6 +13,13 @@ import networkx as nx
 import matplotlib.pyplot as plt
 from st_aggrid import AgGrid
 
+from flask import Flask
+from auth import app as auth_app
+
+app = Flask(__name__)
+
+# Rutas y lógica de aplicación aquí
+
 def buscar_instituciones(nombre):
     url = f"https://api.openalex.org/institutions?search={nombre}"
     resp = requests.get(url)
@@ -627,4 +634,7 @@ st.markdown(
     unsafe_allow_html=True
 )
 
+# Inicia la aplicación
+if __name__ == '__main__':
+    app.run(debug=True)
     
